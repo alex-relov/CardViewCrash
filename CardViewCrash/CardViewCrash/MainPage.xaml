@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView" xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             mc:Ignorable="d"
+             x:Class="CardViewCrash.MainPage">
+
+    <cards:CardsView x:Name="cards" SelectedIndex="{Binding SelectedIndex}" ItemsSource="{Binding Items}">
+        <cards:CardsView.ItemTemplate>
+            <DataTemplate>
+                <ContentView>
+                    <ffimageloading:CachedImage LoadingPlaceholder="azuma_placeholder.png" ErrorPlaceholder="azuma_placeholder.png" Margin="15" 
+                                                                    VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"                                                                            
+                                                                            CacheDuration="30" Source="{Binding}">
+                        <ffimageloading:CachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Select" CommandParameter="{Binding}" />
+                        </ffimageloading:CachedImage.GestureRecognizers>
+                    </ffimageloading:CachedImage>
+                </ContentView>
+            </DataTemplate>
+        </cards:CardsView.ItemTemplate>
+    </cards:CardsView>
+
+</ContentPage>
